@@ -76,6 +76,14 @@ function updateMusicVolume() {
   }
 }
 
+// --- Base-aware asset helper (critical for GitHub Pages /figma-007/ subpath) ---
+const BASE_URL = import.meta.env.BASE_URL || '/';
+function asset(path: string): string {
+  // Ensure no double slashes and always start from base
+  const clean = path.replace(/^\/+/, '');
+  return `${BASE_URL}${clean}`;
+}
+
 // =============================================
 
 interface AppState {
@@ -235,7 +243,7 @@ function renderHome(container: HTMLElement) {
 
       <!-- Hero Car Image (exact reference photo from Figma for fidelity) -->
       <div class="relative -mx-1 mb-7 rounded-2xl overflow-hidden aspect-[16/9] bg-[#111] border border-white/5">
-        <img src="/references/cars/hero-e350.jpg" alt="Mercedes-Benz E350 Obsidian Black" 
+        <img src="${asset('references/cars/hero-e350.jpg')}" alt="Mercedes-Benz E350 Obsidian Black" 
              class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/60"></div>
         <div class="absolute bottom-3 right-3 px-3 py-px bg-black/70 rounded-full text-[10px] tracking-wider">E 350</div>
@@ -570,7 +578,7 @@ function renderSettings(container: HTMLElement) {
       
       <!-- Exact black Mercedes side photo from hero (matches ref car) -->
       <div class="mb-2.5 rounded-2xl overflow-hidden border border-white/10">
-        <img src="/references/cars/hero-e350.jpg" class="w-full h-[120px] object-cover" alt="2020 Mercedes-Benz E350 black">
+        <img src="${asset('references/cars/hero-e350.jpg')}" class="w-full h-[120px] object-cover" alt="2020 Mercedes-Benz E350 black">
       </div>
 
       <!-- Vehicle info line EXACT from Figma reference (placed below photo, not overlaid) -->
@@ -789,7 +797,7 @@ function updateConfigurator() {
   const total = 586000 + color.price + wheel.price + pkgPrice;
 
   // Update preview visual with real car imagery where possible
-  const imgSrc = state.carColor === 'silver' ? '/references/cars/silver-e350.jpg' : '/references/cars/hero-e350.jpg';
+  const imgSrc = state.carColor === 'silver' ? asset('references/cars/silver-e350.jpg') : asset('references/cars/hero-e350.jpg');
   preview.innerHTML = `
     <div class="w-full h-full rounded-2xl overflow-hidden border border-white/10 relative">
       <img src="${imgSrc}" alt="${color.name}" class="absolute inset-0 w-full h-full object-cover">
@@ -1604,7 +1612,7 @@ function createDynamicCarVisual(options: {
       <div class="absolute inset-0 bg-[radial-gradient(#1f1f1f_.6px,transparent_1px)] bg-[length:2.5px_2.5px]"></div>
       
       <!-- Real photo base for correct proportions. Shifted object-position to better frame front/headlight area of 3/4 photo -->
-      <img src="/references/cars/hero-e350.jpg" 
+      <img src="${asset('references/cars/hero-e350.jpg')}" 
            class="absolute inset-0 w-full h-full object-cover"
            style="filter: brightness(0.82) contrast(1.08); object-position: 58% 50%;">
       
@@ -1893,7 +1901,7 @@ function updateFullConfigurator() {
   const total = 586000 + color.price + wheel.price + pkgPrice + addonTotal;
 
   // Beautiful large preview
-  const imgSrc = fullConfigState.carColor === 'silver' ? '/references/cars/silver-e350.jpg' : '/references/cars/hero-e350.jpg';
+  const imgSrc = fullConfigState.carColor === 'silver' ? asset('references/cars/silver-e350.jpg') : asset('references/cars/hero-e350.jpg');
   preview.innerHTML = `
     <img src="${imgSrc}" class="absolute inset-0 w-full h-full object-cover" alt="${color.name}">
     <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/75"></div>

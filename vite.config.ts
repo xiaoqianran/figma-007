@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   root: '.',
+  base: '/figma-007/',
   plugins: [
     tailwindcss(),
   ],
@@ -12,5 +13,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    assetsDir: 'assets',
   },
 });
