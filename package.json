@@ -1,0 +1,29 @@
+{
+  "name": "mex-smart-car",
+  "version": "1.0.0",
+  "description": "Mex Smart Car — Premium connected vehicle experience. Figma design replicated as a fully interactive modern website with live mobile app demo.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "mex",
+    "smart-car",
+    "mercedes",
+    "connected-car",
+    "figma-to-web"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.14"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  }
+}

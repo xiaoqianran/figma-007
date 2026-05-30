@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mex • Smart Car — Intelligent Companion for Your Mercedes-Benz E350</title>
+  <meta name="description" content="Mex brings your luxury car to life. Seamless smart control, real-time status, and premium connected experiences for the Mercedes-Benz E350 and beyond.">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-[#000000] text-[#f8f8f8] overflow-x-hidden">
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 glass border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+          <span class="text-black font-bold text-xl tracking-[-1.5px]">M</span>
+        </div>
+        <div>
+          <div class="font-semibold tracking-[-0.5px] text-xl">MEX</div>
+          <div class="text-[10px] text-white/50 -mt-1">SMART CAR</div>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center gap-9 text-sm">
+        <a href="#the-car" class="hover:text-white/70 transition">The Car</a>
+        <a href="#app-demo" class="hover:text-white/70 transition">Live App Demo</a>
+        <a href="#features" class="hover:text-white/70 transition">Features</a>
+        <a href="#configurator" class="hover:text-white/70 transition">Configurator</a>
+        <a href="#app-experience" class="hover:text-white/70 transition">The App</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="document.getElementById('app-demo').scrollIntoView({behavior:'smooth'})" 
+                class="hidden sm:block px-5 py-2 text-sm rounded-full border border-white/20 hover:bg-white/5 transition">
+          Launch Demo
+        </button>
+        <button onclick="showBookModal()"
+                class="px-6 py-2 text-sm font-medium rounded-full bg-white text-black hover:bg-white/90 transition">
+          Book a Demo Drive
+        </button>
+        <!-- Mobile menu -->
+        <button class="md:hidden p-2" onclick="toggleMobileNav()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="relative min-h-[100dvh] flex items-center justify-center pt-12 pb-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/5 text-xs tracking-[2px] mb-6 border border-white/10">
+        <div class="w-1.5 h-1.5 bg-[#00b4ff] rounded-full animate-pulse"></div>
+        CONNECTED LUXURY EXPERIENCE
+      </div>
+
+      <h1 class="text-6xl md:text-7xl font-semibold tracking-[-2.8px] leading-[0.92] mb-6">
+        Your car.<br>
+        <span class="text-white/70">Intelligent.</span>
+      </h1>
+      
+      <p class="max-w-md mx-auto text-xl text-white/70 mb-10 tracking-[-0.2px]">
+        Mex turns your Mercedes-Benz E350 into a living, breathing companion. 
+        Real-time control. Seamless journeys.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button onclick="document.getElementById('app-demo').scrollIntoView({behavior:'smooth'})" 
+                class="btn-primary text-lg px-10 py-4 rounded-2xl font-semibold shadow-xl shadow-[#00b4ff]/20">
+          Experience the App
+        </button>
+        <button onclick="document.getElementById('the-car').scrollIntoView({behavior:'smooth'})" 
+                class="btn-ghost text-lg px-8 py-4">
+          Discover the E350
+        </button>
+      </div>
+
+      <div class="mt-12 flex justify-center gap-8 text-xs text-white/50 tracking-widest">
+        <div>4.98/5 OWNER RATING</div>
+        <div>12,400+ CONNECTED VEHICLES</div>
+        <div class="hidden sm:block">MERCEDES-BENZ INTEGRATED</div>
+      </div>
+    </div>
+
+    <!-- Hero car visual -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[92%] max-w-[1100px] opacity-95 car-hero pointer-events-none">
+      <img src="/references/cars/hero-e350.jpg" alt="Mercedes-Benz E350 Obsidian Black - Studio shot matching Figma design" 
+           class="w-full rounded-3xl border border-white/10 shadow-2xl object-cover aspect-[16/9]">
+    </div>
+  </header>
+
+  <!-- TRUST / STATS -->
+  <div class="border-y border-white/10 py-5">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 text-center text-sm">
+      <div><span class="font-semibold text-white">68%</span> <span class="text-white/50">average fuel saved with smart routing</span></div>
+      <div><span class="font-semibold text-white">4.2s</span> <span class="text-white/50">average time to start car from app</span></div>
+      <div><span class="font-semibold text-white">94k</span> <span class="text-white/50">auto-park sessions completed</span></div>
+      <div><span class="font-semibold text-white">91%</span> <span class="text-white/50">owners use daily</span></div>
+    </div>
+  </div>
+
+  <!-- THE CAR / VEHICLE SHOWCASE -->
+  <section id="the-car" class="section max-w-7xl mx-auto px-6 pt-20 pb-16">
+    <div class="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+      <div class="flex-1">
+        <div class="uppercase tracking-[2px] text-xs text-[#00b4ff] mb-3">THE VEHICLE</div>
+        <h2 class="text-5xl font-semibold tracking-[-1.8px] leading-none mb-6">Mercedes-Benz E350<br>with Mex Intelligence</h2>
+        <p class="text-xl text-white/70 max-w-md">A perfect fusion of German engineering and modern connected software. Every detail designed for effortless ownership.</p>
+        
+        <div class="mt-8 grid grid-cols-2 gap-4 text-sm">
+          <div class="border-l-2 border-[#00b4ff] pl-4">
+            <div class="text-white/50">Top Speed</div>
+            <div class="text-2xl font-medium">250 km/h</div>
+          </div>
+          <div class="border-l-2 border-[#00b4ff] pl-4">
+            <div class="text-white/50">0-100 km/h</div>
+            <div class="text-2xl font-medium">6.1 s</div>
+          </div>
+          <div class="border-l-2 border-[#00b4ff] pl-4">
+            <div class="text-white/50">Power</div>
+            <div class="text-2xl font-medium">295 hp</div>
+          </div>
+          <div class="border-l-2 border-[#00b4ff] pl-4">
+            <div class="text-white/50">Range (combined)</div>
+            <div class="text-2xl font-medium">680 km</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1 relative">
+        <div class="aspect-video bg-[#111] rounded-3xl overflow-hidden border border-white/10 flex items-center justify-center">
+          <div class="text-center">
+            <div class="text-6xl mb-2">🚗</div>
+            <div class="text-sm text-white/50">Studio imagery of the E350<br>— matched to Figma reference</div>
+          </div>
+        </div>
+        <div class="absolute -bottom-3 -right-3 bg-black border border-white/10 rounded-2xl px-5 py-3 text-xs flex gap-4">
+          <div>Obsidian Black</div>
+          <div class="text-[#00b4ff]">•</div>
+          <div>19" AMG Wheels</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP DEMO - THE HEART -->
+  <section id="app-demo" class="section bg-[#050505] py-16 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <div class="inline text-[#00b4ff] text-xs tracking-[2.5px] font-medium">FULLY FUNCTIONAL</div>
+        <h2 class="text-5xl font-semibold tracking-[-1.6px] mt-3 mb-4">The Mex App.<br>Exactly as designed.</h2>
+        <p class="text-white/70 max-w-lg mx-auto">Every screen, interaction and micro-detail from the Figma faithfully recreated and made live. Tap, toggle, control.</p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-10 lg:gap-16">
+        
+        <!-- Phone Frame -->
+        <div>
+          <div class="phone-frame mx-auto" id="phone-frame">
+            <div class="phone-screen">
+              <!-- Dynamic App Header -->
+              <div class="phone-header">
+                <div id="phone-time">9:41</div>
+                <div class="flex items-center gap-1.5 text-[11px]">
+                  <span>●●●●</span> <span class="opacity-70">5G</span> 
+                  <span>100%</span>
+                </div>
+              </div>
+
+              <!-- App Content Area -->
+              <div id="app-content" class="app-content"></div>
+
+              <!-- Bottom Navigation -->
+              <div class="bottom-nav text-[10px]" role="tablist" aria-label="App navigation">
+                <div onclick="switchAppScreen('home')" class="nav-item" id="nav-home" role="tab" aria-selected="false" aria-label="Home screen">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1v-5m-6 0l-2 2m0 0l-2-2m2 2v6" /></svg>
+                  <span>Home</span>
+                </div>
+                <div onclick="switchAppScreen('control')" class="nav-item" id="nav-control" role="tab" aria-selected="false" aria-label="Control screen">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+                  <span>Control</span>
+                </div>
+                <div onclick="switchAppScreen('utility')" class="nav-item" id="nav-utility" role="tab" aria-selected="false" aria-label="Utility screen">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                  <span>Utility</span>
+                </div>
+                <div onclick="switchAppScreen('maps')" class="nav-item" id="nav-maps" role="tab" aria-selected="false" aria-label="Maps screen">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+                  <span>Maps</span>
+                </div>
+                <div onclick="switchAppScreen('settings')" class="nav-item" id="nav-settings" role="tab" aria-selected="false" aria-label="Settings screen">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 002.572 1.065c1.755.426 1.755 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                  <span>Settings</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-3 text-xs text-white/40">iPhone • Live &amp; interactive • All interactions saved in-session</div>
+        </div>
+
+        <!-- Demo instructions / info -->
+        <div class="max-w-sm pt-4 lg:pt-12">
+          <div class="uppercase text-xs tracking-widest text-[#00b4ff] mb-2">REPLICA FROM FIGMA</div>
+          <h3 class="text-3xl font-medium tracking-tight mb-4">Every screen, every detail</h3>
+          
+          <ul class="space-y-4 text-sm text-white/80">
+            <li class="flex gap-3"><span class="text-[#00b4ff] mt-0.5">→</span> <span><strong>Home</strong> — Live status, quick controls, Start Car</span></li>
+            <li class="flex gap-3"><span class="text-[#00b4ff] mt-0.5">→</span> <span><strong>Control</strong> — Climate, doors, lights, auto features</span></li>
+            <li class="flex gap-3"><span class="text-[#00b4ff] mt-0.5">→</span> <span><strong>Music</strong> — Integrated player &amp; playlists</span></li>
+            <li class="flex gap-3"><span class="text-[#00b4ff] mt-0.5">→</span> <span><strong>Utility &amp; Profile</strong> — Car settings and owner profile</span></li>
+          </ul>
+
+          <div class="mt-8 p-4 rounded-2xl bg-white/5 text-xs border border-white/10">
+            <strong class="text-white">Pro tip:</strong> Tap the Quick Control cards and bottom nav items. Changes persist across screens. Try starting the car.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MEX APP EXPERIENCE - NEW HORIZONTAL SCROLLER USING FIGMA REFERENCES -->
+  <section id="app-experience" class="section max-w-7xl mx-auto px-6 py-20 border-b border-white/10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-9">
+      <div>
+        <div class="inline-flex items-center gap-2 text-[#00b4ff] text-xs tracking-[2.5px] font-medium mb-2">CRAFTED IN FIGMA • FAITHFULLY RENDERED</div>
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-[-2.2px] leading-none">The Mex App<br>Experience.</h2>
+      </div>
+      <p class="text-white/60 max-w-sm md:text-right text-[15px]">Swipe through the beautifully designed interface. Every screen mirrors the original Figma with pixel-perfect fidelity and buttery interactions in the live demo.</p>
+    </div>
+
+    <!-- Premium horizontal scroller -->
+    <div class="app-screens-scroller flex gap-4 md:gap-5 overflow-x-auto pb-6 -mx-1 px-1">
+      
+      <div class="app-screen-card" onclick="showScreenInDemo('home')" style="cursor:pointer">
+        <img src="/references/screens/home.png" alt="Mex App Home screen - Live dashboard with car status and quick controls">
+        <div class="app-screen-label">
+          <span class="tag">DASHBOARD</span>
+          <div class="font-medium">Home • Real-time Status</div>
+        </div>
+      </div>
+      
+      <div class="app-screen-card" onclick="showScreenInDemo('control')" style="cursor:pointer">
+        <img src="/references/screens/control.png" alt="Mex App Control screen - Climate, doors, lighting and auto features">
+        <div class="app-screen-label">
+          <span class="tag">CONTROL</span>
+          <div class="font-medium">Precision Controls</div>
+        </div>
+      </div>
+      
+      <div class="app-screen-card" onclick="showScreenInDemo('door')" style="cursor:pointer">
+        <img src="/references/screens/door.png" alt="Mex App Door &amp; Access management screen">
+        <div class="app-screen-label">
+          <span class="tag">ACCESS</span>
+          <div class="font-medium">Doors &amp; Security</div>
+        </div>
+      </div>
+      
+      <div class="app-screen-card" onclick="showScreenInDemo('light')" style="cursor:pointer">
+        <img src="/references/screens/light.png" alt="Mex App Lighting controls screen">
+        <div class="app-screen-label">
+          <span class="tag">AMBIENCE</span>
+          <div class="font-medium">Lighting &amp; Mood</div>
+        </div>
+      </div>
+
+      <div class="app-screen-card" onclick="showScreenInDemo('music')" style="cursor:pointer">
+        <img src="/references/screens/music-list.png" alt="Mex App Music player and playlists">
+        <div class="app-screen-label">
+          <span class="tag">AUDIO</span>
+          <div class="font-medium">Music &amp; Media</div>
+        </div>
+      </div>
+
+      <div class="app-screen-card" onclick="showScreenInDemo('utility')" style="cursor:pointer">
+        <img src="/references/screens/utility.png" alt="Mex App Utility screen - Battery, service and find car">
+        <div class="app-screen-label">
+          <span class="tag">UTILITY</span>
+          <div class="font-medium">Smart Services</div>
+        </div>
+      </div>
+
+      <div class="app-screen-card" onclick="showScreenInDemo('profile')" style="cursor:pointer">
+        <img src="/references/screens/profile.png" alt="Mex App Owner profile and vehicle settings">
+        <div class="app-screen-label">
+          <span class="tag">PROFILE</span>
+          <div class="font-medium">Your E350</div>
+        </div>
+      </div>
+
+      <div class="app-screen-card" onclick="showScreenInDemo('settings')" style="cursor:pointer">
+        <img src="/references/screens/settings.png" alt="Mex App Advanced settings screen">
+        <div class="app-screen-label">
+          <span class="tag">SETTINGS</span>
+          <div class="font-medium">Advanced Preferences</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-2">
+      <a href="#app-demo" class="inline-flex items-center gap-2 text-sm text-[#00b4ff] hover:underline">Experience these screens live in the interactive phone demo →</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section max-w-7xl mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <div class="text-[#00b4ff] text-xs tracking-[2px]">INTELLIGENCE BUILT IN</div>
+      <h2 class="text-5xl font-semibold tracking-[-1.5px] mt-2">Everything your car needs.<br>Nothing it doesn’t.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="bg-[#111] rounded-3xl p-8 group">
+        <div class="text-4xl mb-6 opacity-80">⚡</div>
+        <h4 class="font-semibold text-xl mb-3">Instant Start &amp; Precondition</h4>
+        <p class="text-white/70">Start your E350 from anywhere. Cabin reaches perfect temperature before you arrive.</p>
+      </div>
+      <div class="bg-[#111] rounded-3xl p-8 group">
+        <div class="text-4xl mb-6 opacity-80">🅿️</div>
+        <h4 class="font-semibold text-xl mb-3">Auto Parking &amp; Summon</h4>
+        <p class="text-white/70">Park perfectly in tight spaces or summon the car to your exact location with one tap.</p>
+      </div>
+      <div class="bg-[#111] rounded-3xl p-8 group">
+        <div class="text-4xl mb-6 opacity-80">🎵</div>
+        <h4 class="font-semibold text-xl mb-3">Deep Music Integration</h4>
+        <p class="text-white/70">Your playlists, your mood. Seamless handoff between phone, car and Mex app.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMART FEATURES DEEP DIVE / TECHNICAL SPECIFICATIONS -->
+  <section id="specs" class="section max-w-7xl mx-auto px-6 py-20 border-b border-white/10">
+    <div class="grid lg:grid-cols-12 gap-x-12 gap-y-12 items-start">
+      <!-- Left intro -->
+      <div class="lg:col-span-5">
+        <div class="text-[#00b4ff] text-xs tracking-[2.5px] font-medium">ENGINEERED FOR LUXURY</div>
+        <h2 class="text-5xl font-semibold tracking-[-1.8px] leading-none mt-3 mb-5">Smart Features.<br>Deeply integrated.</h2>
+        <p class="text-xl text-white/70">Mex isn't an aftermarket app. It's a true extension of the E350's engineering — with Mercedes-Benz validated APIs, enterprise-grade security and delightful micro-interactions.</p>
+        
+        <div class="mt-8 flex gap-3 text-sm">
+          <div class="px-4 py-1.5 rounded-full border border-white/15">5G + BT LE</div>
+          <div class="px-4 py-1.5 rounded-full border border-white/15">AES-256</div>
+          <div class="px-4 py-1.5 rounded-full border border-white/15">OTA Enabled</div>
+        </div>
+      </div>
+
+      <!-- Specs content -->
+      <div class="lg:col-span-7">
+        <div class="space-y-1">
+          <div class="spec-row">
+            <div class="spec-icon">⚡</div>
+            <div class="spec-content flex-1">
+              <h4>Instant Command Response</h4>
+              <p>Sub-800ms average round-trip for climate, lock and start commands. Predictive pre-conditioning begins before you leave your calendar event.</p>
+              <div class="spec-value">0.8s avg • 99.4% uptime</div>
+            </div>
+          </div>
+
+          <div class="spec-row">
+            <div class="spec-icon">🔒</div>
+            <div class="spec-content flex-1">
+              <h4>Enterprise Security &amp; Access</h4>
+              <p>End-to-end encryption, hardware-backed secure enclave on device, biometric + PIN. Remote immobilizer available through concierge.</p>
+              <div class="spec-value">Bank-grade • 2FA optional</div>
+            </div>
+          </div>
+
+          <div class="spec-row">
+            <div class="spec-icon">🧠</div>
+            <div class="spec-content flex-1">
+              <h4>AI Journey Intelligence</h4>
+              <p>Learns routes, temperature preferences and departure times. Automatically warms or cools cabin and optimizes energy use for your daily patterns.</p>
+              <div class="spec-value">Calendar + location aware</div>
+            </div>
+          </div>
+
+          <div class="spec-row">
+            <div class="spec-icon">🅿️</div>
+            <div class="spec-content flex-1">
+              <h4>Autonomous Park &amp; Summon</h4>
+              <p>Precision auto-park in spaces as tight as 20cm clearance. Summon follows you with ultrasonic + vision fusion at up to 6 km/h.</p>
+              <div class="spec-value">94k+ successful sessions</div>
+            </div>
+          </div>
+
+          <div class="spec-row">
+            <div class="spec-icon">📡</div>
+            <div class="spec-content flex-1">
+              <h4>Full Mercedes Integration</h4>
+              <p>Native access to vehicle CAN bus, Mercedes Me cloud sync, real-time diagnostics, service scheduling and software updates delivered seamlessly.</p>
+              <div class="spec-value">Certified by Mercedes-Benz</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIGURATOR -->
+  <section id="configurator" class="section bg-[#050505] border-y border-white/10 py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid lg:grid-cols-5 gap-10 items-center">
+        <div class="lg:col-span-2">
+          <div class="text-[#00b4ff] text-xs tracking-[2px]">PERSONALIZE</div>
+          <h2 class="text-5xl font-semibold tracking-[-1.5px] leading-none mt-3 mb-6">Build your<br>perfect E350.</h2>
+          <p class="text-white/70">Choose colors, wheels and packages. See live updates. Real-time pricing from Mex configurator.</p>
+          
+          <div class="flex flex-wrap gap-3 mt-8">
+            <button onclick="randomizeConfig()" class="text-sm underline underline-offset-4 decoration-white/30 hover:decoration-white px-1 py-1" aria-label="Randomize vehicle configuration">Surprise me</button>
+            <button onclick="showFullConfigurator()" 
+                    class="btn-primary text-sm px-7 py-2.5 rounded-2xl font-semibold shadow-lg shadow-[#00b4ff]/25"
+                    aria-label="Open the full detailed E350 configurator modal">
+              Launch Full Configurator →
+            </button>
+          </div>
+          <div class="text-[10px] text-white/40 mt-3">Explore 40+ options • Real-time pricing • Save &amp; share</div>
+        </div>
+
+        <div class="lg:col-span-3">
+          <!-- Live Preview -->
+          <div class="bg-[#111] rounded-3xl p-8 mb-8 border border-white/10">
+            <div id="config-preview" 
+                 class="h-64 flex items-center justify-center text-7xl rounded-2xl bg-[#1a1a1a] border border-white/10 mb-6">
+              🚗
+            </div>
+            
+            <div class="flex flex-wrap gap-3">
+              <div>
+                <div class="text-xs text-white/50 mb-2 px-1">EXTERIOR</div>
+                <div class="flex gap-2" id="color-swatches">
+                  <!-- JS populated -->
+                </div>
+              </div>
+              <div class="ml-auto text-right">
+                <div class="text-xs text-white/50 mb-1">ESTIMATED</div>
+                <div id="config-price" class="text-4xl font-semibold tabular-nums tracking-tight">¥ 628,000</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <div class="text-white/50 text-xs mb-2">WHEELS</div>
+              <div class="flex gap-2 flex-wrap" id="wheel-options">
+                <!-- populated by JS -->
+              </div>
+            </div>
+            <div>
+              <div class="text-white/50 text-xs mb-2">PACKAGE</div>
+              <select id="package-select" onchange="updateConfigurator()" class="bg-[#111] border border-white/10 text-white w-full rounded-xl p-3 text-sm">
+                <option value="standard">Standard — Included</option>
+                <option value="premium">Premium Comfort — +¥42k</option>
+                <option value="amg">AMG Line — +¥78k</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <div class="text-xs tracking-[2px] text-[#00b4ff]">DETAILS</div>
+        <div class="text-3xl font-medium tracking-tight">Crafted to perfection</div>
+      </div>
+      <a href="#configurator" class="text-sm hidden md:block hover:underline">Open Configurator →</a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <img src="/references/cars/hero-e350.jpg" class="rounded-2xl aspect-video object-cover border border-white/10" alt="E350 front three-quarter">
+      <img src="/references/cars/silver-e350.jpg" class="rounded-2xl aspect-video object-cover border border-white/10" alt="E350 silver profile">
+      <div class="rounded-2xl aspect-video bg-[#111] border border-white/10 flex items-center justify-center text-xs text-white/50">Interior • Nappa Leather</div>
+      <div class="rounded-2xl aspect-video bg-[#111] border border-white/10 flex items-center justify-center text-xs text-white/50">Night Drive • Ambient Lighting</div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="max-w-3xl mx-auto text-center px-6 py-20">
+    <h3 class="text-4xl font-medium tracking-tight mb-4">Ready to make your E350 smarter?</h3>
+    <p class="text-white/70 mb-8">Join thousands of owners experiencing effortless luxury every day.</p>
+    
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <button onclick="showBookModal()" class="btn-primary text-base px-10 py-3.5 rounded-2xl">Book Test Drive + App Setup</button>
+      <button onclick="document.getElementById('app-demo').scrollIntoView({behavior:'smooth'})" class="btn-ghost text-base px-8 py-3.5">Open Live Demo</button>
+    </div>
+    <div class="text-[10px] text-white/40 mt-5">No credit card required • Available on iOS &amp; Android</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-12 text-xs text-white/50">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-y-4">
+      <div>© 2026 Mex Technologies. Replicated from Figma design “Mex Smart Car”.</div>
+      <div class="flex gap-x-6">
+        <a href="#" class="hover:text-white/80">Privacy</a>
+        <a href="#" class="hover:text-white/80">Legal</a>
+        <a href="#" class="hover:text-white/80">Mercedes Partnership</a>
+        <a href="#" onclick="window.location.reload()" class="hover:text-white/80">Reload Demo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Book Modal -->
+  <div id="book-modal" onclick="if (event.target.id === 'book-modal') hideBookModal()" class="hidden fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-6">
+    <div onclick="event.stopImmediatePropagation()" class="bg-[#111] w-full max-w-md rounded-3xl p-8 border border-white/10">
+      <h3 class="text-2xl font-semibold tracking-tight">Book your personal demo</h3>
+      <p class="text-white/60 mt-1 text-sm">We’ll set up the full Mex experience in your E350.</p>
+
+      <form id="demo-form" onsubmit="submitDemoForm(event)" class="mt-6 space-y-4">
+        <input type="text" placeholder="Full name" class="w-full bg-black border border-white/15 rounded-2xl p-3.5 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00b4ff]" required>
+        <input type="email" placeholder="Email address" class="w-full bg-black border border-white/15 rounded-2xl p-3.5 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00b4ff]" required>
+        <input type="tel" placeholder="Phone number" class="w-full bg-black border border-white/15 rounded-2xl p-3.5 text-sm placeholder:text-white/40 focus:outline-none focus:border-[#00b4ff]">
+        
+        <select class="w-full bg-black border border-white/15 rounded-2xl p-3.5 text-sm">
+          <option>Mercedes-Benz E350 (current)</option>
+          <option>Other Mex-supported vehicle</option>
+        </select>
+
+        <button type="submit" class="mt-2 w-full py-3.5 rounded-2xl bg-white text-black font-semibold active:bg-white/90">Confirm Demo Request</button>
+      </form>
+      <button onclick="hideBookModal()" class="mt-3 w-full py-2 text-sm text-white/60">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Full Configurator Modal (Richer Experience) -->
+  <div id="full-config-modal" onclick="if (event.target.id === 'full-config-modal') hideFullConfigurator()" class="hidden fixed inset-0 z-[110] bg-black/95 flex items-center justify-center p-4 md:p-8">
+    <div onclick="event.stopImmediatePropagation()" class="config-modal w-full">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-8 pt-7 pb-5 border-b border-white/10">
+        <div>
+          <div class="text-[#00b4ff] text-xs tracking-[2px]">EXCLUSIVE BUILDER</div>
+          <div class="text-3xl font-semibold tracking-tight">Full E350 Configurator</div>
+        </div>
+        <button onclick="hideFullConfigurator()" class="text-white/50 hover:text-white text-2xl leading-none px-2">×</button>
+      </div>
+
+      <div class="p-8 grid lg:grid-cols-2 gap-8 max-h-[72vh] overflow-y-auto">
+        <!-- Live Large Preview -->
+        <div>
+          <div id="full-config-preview" class="preview-area h-[280px] md:h-[320px] flex items-center justify-center rounded-2xl mb-6 relative overflow-hidden">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Extended color swatches in modal -->
+          <div>
+            <div class="uppercase text-xs tracking-widest text-white/50 mb-3 px-1">EXTERIOR FINISH</div>
+            <div class="flex flex-wrap gap-3" id="full-color-swatches"><!-- JS --></div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="space-y-7">
+          <div>
+            <div class="text-xs tracking-widest text-white/50 mb-3">WHEELS</div>
+            <div class="flex flex-wrap gap-2" id="full-wheel-options"><!-- JS populated --></div>
+          </div>
+
+          <div>
+            <div class="text-xs tracking-widest text-white/50 mb-2">PACKAGES &amp; UPGRADES</div>
+            <div class="space-y-2 text-sm" id="full-package-options">
+              <!-- Populated dynamically for richer choices -->
+            </div>
+          </div>
+
+          <!-- Additional premium addons -->
+          <div>
+            <div class="text-xs tracking-widest text-white/50 mb-2.5">SMART &amp; COMFORT ADD-ONS</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+              <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 cursor-pointer hover:bg-white/10">
+                <input type="checkbox" id="addon-audio" class="accent-[#00b4ff]" onchange="updateFullConfigurator()"> 
+                <span>Burmester® 3D Audio <span class="text-white/40 text-xs">(+¥28k)</span></span>
+              </label>
+              <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 cursor-pointer hover:bg-white/10">
+                <input type="checkbox" id="addon-assist" class="accent-[#00b4ff]" onchange="updateFullConfigurator()"> 
+                <span>Driver Assistance Pro <span class="text-white/40 text-xs">(+¥19k)</span></span>
+              </label>
+              <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 cursor-pointer hover:bg-white/10">
+                <input type="checkbox" id="addon-interior" class="accent-[#00b4ff]" onchange="updateFullConfigurator()"> 
+                <span>Executive Nappa Interior <span class="text-white/40 text-xs">(+¥34k)</span></span>
+              </label>
+              <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 cursor-pointer hover:bg-white/10">
+                <input type="checkbox" id="addon-air" class="accent-[#00b4ff]" onchange="updateFullConfigurator()"> 
+                <span>Air Balance Fragrance <span class="text-white/40 text-xs">(+¥8k)</span></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price summary -->
+          <div class="pt-2 border-t border-white/10">
+            <div class="flex justify-between items-baseline mb-1 px-1">
+              <div class="text-sm text-white/60">TOTAL (EST.)</div>
+              <div id="full-config-price" class="text-4xl font-semibold tabular-nums tracking-tighter">¥ 712,000</div>
+            </div>
+            <div class="price-breakdown text-xs text-white/50 px-1 space-y-px" id="price-breakdown">
+              <!-- JS populated line items -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer Actions -->
+      <div class="px-8 py-6 border-t border-white/10 bg-black/40 flex flex-col sm:flex-row gap-3 justify-between items-center">
+        <button onclick="saveFullConfigDemo()" class="text-sm px-6 py-2.5 rounded-2xl border border-white/20 hover:bg-white/5">Save Configuration</button>
+        
+        <div class="flex gap-3 w-full sm:w-auto">
+          <button onclick="hideFullConfigurator()" class="flex-1 sm:flex-none text-sm px-8 py-2.5 rounded-2xl border border-white/20">Close</button>
+          <button onclick="requestQuoteFromConfig()" class="flex-1 sm:flex-none btn-primary px-9 py-2.5 rounded-2xl font-semibold">Request Official Quote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
